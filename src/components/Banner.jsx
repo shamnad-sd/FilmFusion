@@ -10,7 +10,7 @@ const Banner = () => {
 
   const responsive = {
     desktop: {
-      breakpoint: { max: 1000, min: 1024 },
+      breakpoint: { max: 2000, min: 1024 },
       items: 1
     },
     tablet: {
