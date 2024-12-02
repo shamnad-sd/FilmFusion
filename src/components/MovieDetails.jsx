@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { TMDB_API_KEY, TMDB_BASE_URL, TMDB_IMAGE_BASE_URL } from '../config';
-import NavAPi from './NavAPi';
 
 const MovieDetails = () => {
   const { id } = useParams();
