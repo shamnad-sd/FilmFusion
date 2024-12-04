@@ -14,7 +14,6 @@ const MovieApi = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const MovieList = async (query, type = 'search') => {
     setLoading(true);
@@ -26,7 +25,6 @@ const MovieApi = () => {
       } else if (type === 'category') {
         url = `${TMDB_BASE_URL}/movie/${query}?api_key=${TMDB_API_KEY}`;
       }
-      
       const response = await fetch(url);
       const data = await response.json();
 
@@ -43,15 +41,19 @@ const MovieApi = () => {
     }
   };
 
+  
+  
+  
+  const handleSearch = () => {
+    MovieList(searchTerm);
+    
+  };
+
+
+  
   useEffect(() => {
     MovieList('popular', 'category');
   }, []);
-
-  
-
-  const handleSearch = () => {
-    MovieList(searchTerm);
-  };
 
   return (
     <div>
@@ -59,8 +61,7 @@ const MovieApi = () => {
         searchTerm={searchTerm} 
         setSearchTerm={setSearchTerm} 
         handleSearch={handleSearch} 
-        isMenuOpen={isMenuOpen} 
-        setIsMenuOpen={setIsMenuOpen} 
+        
        // Pass isScrolled to Navbar
       />
       <Banner />
@@ -103,7 +104,7 @@ const MovieApi = () => {
             >
               {movies.map((movie) => (
                 <div key={movie.id} className="px-2">
-                  <MovieCard movie={movie} isCarousel={true} />
+                  <MovieCard movie={movie} />
                 </div>
               ))}
             </Carousel>

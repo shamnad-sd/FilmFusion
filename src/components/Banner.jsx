@@ -60,6 +60,7 @@ const Banner = () => {
         transitionDuration={500}
         containerClass="carousel-container h-full"
         removeArrowOnDeviceType={["tablet", "mobile"]}
+        6gg
       >
         {movies.map((movie) => (
           <div key={movie.id} className="relative h-full w-full">

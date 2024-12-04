@@ -2,13 +2,9 @@ import React, { useState } from 'react'
 import { TMDB_IMAGE_BASE_URL } from '../config'
 import { useNavigate } from 'react-router-dom'
 
-const MovieCard = ({movie, isCarousel}) => {
+const MovieCard = ({movie}) => {
   const navigate = useNavigate();
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleDescription = () => {
-    setIsExpanded(!isExpanded);
-  };
+  
 
   return (
     <div className="relative group mb-7 bg-zinc-900 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-500/20 max-w-[280px] mx-auto">
